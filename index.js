@@ -1,12 +1,12 @@
-// require app
+// require app, mongoose
 var app = require('./server/server.js');
-// var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 // set mongoURI
-// var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/crowdcart';
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/crowdcart';
 
 // connect db
-// mongoose.connect(mongoURI);
+mongoose.connect(mongoURI);
 
 // set port
 var port = process.env.PORT || 1337;
