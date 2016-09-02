@@ -1,1 +1,27 @@
-<!-- this is index.html -->
+<!-- ///////////////////////////
+    /// JOIN CROWDCART!!! /////
+   /////////////////////////// -->
+<html ng-app>
+  <head>
+    <title>CrowdCart!</title>
+  </head>
+  </body>
+    <div ng-init="lists=[]" >
+      <input ng-model="newList">
+      <button ng-click="lists.push(newList); newList='';">add</button>
+      <ul>
+        <li ng-repeat="list in lists track by $index">
+          <h3>{{ list }}<h3>
+        </li>
+      </ul>
+      <pre>{{ lists | json }}</pre>
+    </div> 
+    <script src="../bower_components/angular/angular.js"></script>
+  </body>
+</html>
+
+<!-- TODO
+1. determine if header should be outside of ng-view
+2. set up ng-view div
+3. individual html for views (mylist, alllist, myjobs)
+4. connect all relevant js/css  -->
