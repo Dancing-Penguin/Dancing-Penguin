@@ -14,8 +14,14 @@
           <h3>{{ list }}<h3>
         </li>
       </ul>
-      <pre>{{ list }}</pre>
+      <pre>{{ lists | json }}</pre>
     </div> 
     <script src="../bower_components/angular/angular.js"></script>
   </body>
 </html>
+
+<!-- TODO
+1. determine if header should be outside of ng-view
+2. set up ng-view div
+3. individual html for views (mylist, alllist, myjobs)
+4. connect all relevant js/css  -->
