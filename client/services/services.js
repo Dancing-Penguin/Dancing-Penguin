@@ -9,7 +9,7 @@ angular.module("crowdcar.service",[])
 // signup - call server
 
 
-// Lists factor
+// Lists factory
 // get lists - call server - GET - options as filter?
 // save list - call server - PUT/POST (do we want to reuse for edit?)
 // delete list - call server - DELETE
