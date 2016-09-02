@@ -1,6 +1,7 @@
 // require userHandler, listHandler
 
 // export function
+module.exports = function(app, express){
 
   // POST - signin
   // POST - signup
@@ -9,3 +10,5 @@
   // GET - getList
   // GET - getAllLists
   // POST - updateStatus
+
+};
