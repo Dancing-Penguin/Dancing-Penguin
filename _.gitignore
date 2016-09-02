@@ -27,3 +27,22 @@ dist/
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules/
 bower_components/
+dist/
+npm-debug.log
+
+# Floobits
+.floo
+.floobit
+.flooignore
+
+# Thumbnails
+._*
+
+# Other
+.DS_Store
+.AppleDouble
+.LSOverride
+azure.err
+iisnode.yml
+.Spotlight-V100
+.Trashes
