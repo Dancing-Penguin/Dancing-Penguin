@@ -1,6 +1,6 @@
 // require userHandler, listHandler
-var userHandler = require('/../users/userHandler.js');
-var listHandler = require('/../lists/listHandler.js');
+var userHandler = require('../users/userHandler.js');
+var listHandler = require('../lists/listHandler.js');
 
 // export function
 module.exports = function(app, express){
