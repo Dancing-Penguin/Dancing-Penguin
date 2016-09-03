@@ -1,6 +1,6 @@
 // require express, mongoose, middleware, routes
 var express = require('express');
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 var middleware = require('./config/middleware.js');
 var routes = require('./config/routes.js');
 
