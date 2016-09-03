@@ -8,10 +8,8 @@ module.exports = function(app, express) {
   // use morgan
   app.use(morgan('dev'));
 
-  // use bodyParser.urlencoded
+  // use bodyParser
   app.use(bodyParser.urlencoded({extended: true}));
-
-  // use bodyParser.json
   app.use(bodyParser.json());
 
   // use express.static to serve client folder

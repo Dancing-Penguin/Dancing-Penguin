@@ -1,4 +1,4 @@
-// require app
+// require app, mongoose
 var app = require('./server/server.js');
 var mongoose = require('mongoose');
 
