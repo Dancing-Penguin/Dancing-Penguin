@@ -1,4 +1,4 @@
-// make an auth module
+angular.module('crowdcart.auth', [])// make an auth module
 
 // make and auth controller
 // signin - delegate to services to call server

@@ -39,6 +39,7 @@ npm-debug.log
 ._*
 
 # Other
+client/.DS_Store
 .DS_Store
 .AppleDouble
 .LSOverride
