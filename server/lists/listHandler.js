@@ -1,26 +1,77 @@
 // require helper, User, List
 var helper = require('../config/helpers.js');
-// TODO: require User and List db model js files
+var User = require('../users/userModel.js');
+var List = require('./listModel.js');
 
 // export function
 module.exports = {
 
   // TODO:
-  // Fill out signin/signout methods
   // Coordinate with front end on what data
   // should be sent and received.
-  // Coordinate with Henry on how to query the db
 
   // addList method
-  addList: function(req, res){},
+  addList: function(req, res){
+    var newListObj = req.body;
+
+    List.create(newListObj, function(err, list){
+      if (err) { // notifies if error is thrown
+        console.log("mongo create list err: ", err);
+        helper.sendError(err, req, res);
+      } else { // list created, sends 201 status
+        res.status(201);
+      }
+    });
+  },
 
   // getList method
-  getList: function(req, res){},
+  getList: function(req, res){
+    var listid = req.body.listid;
+
+    List.findOne({'_id': listid}, function(err, list){
+      if (err) { // notifies if error is thrown
+        console.log("mongo findOne list err: ", err);
+        helper.sendError(err, req, res);
+      } else {
+        if (!list) { // notifies if list is not found
+          helper.sendError("List not found", req, res);
+        } else { // list found, returns list
+          res.json(list);
+        }
+      }
+    });
+  },
 
   // getAllLists method
-  getAllLists: function(req, res){},
+  getAllLists: function(req, res){
+    List.find({})
+      .then(function(lists){ // returns array of lists
+        res.json(lists);
+      });
+  },
 
   // updateStatus method
-  updateStatus: function(req, res){}
+  updateStatus: function(req, res){
+    var listid = req.body.listid;
+    var userid = req.body.userid;
+
+    List.findOne({'_id': listid}, function(err, list){
+      if (err) { // notifies if error is thrown
+        console.log("mongo findOne list err: ", err);
+      } else {
+        if (!list) { // notifies if list is not found
+          helper.sendError("List not found", req, res);
+        } else {
+          List.update({'_id': listid}, {'deliverer_id': userid}, function(err, result){
+            if (err) { // notifies if error is thrown
+              console.log("mongo update err: ", err);
+            } else { // update successful, returns result
+              res.json(result);
+            }
+          });
+        }
+      }
+    });
+  }
 
 };

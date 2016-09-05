@@ -7,10 +7,8 @@ var User = require('./userModel.js');
 module.exports = {
 
   // TODO:
-  // Fill out signin/signout methods
   // Coordinate with front end on what data
   // should be sent and received.
-  // Coordinate with Henry on how to query the db
 
   // signin method
   signin: function(req, res){
