@@ -5,16 +5,33 @@ angular.module("crowdcart", [
   "crowdcart.auth",
   "crowdcart.lists",
   "crowdcart.services",
-  "ngRoute",
-  "ui.router"
+  "ngRoute"
 ])
 
 //config/routing
-.config(function () {
-
+.config(function ($routeProvider, $httpProvider) {
+  $routeProvider
+    .when('/signin', {
+      templateUrl: 'auth/signin.html',
+      controller: 'AuthController'
+    })
+    .when('/signup', {
+      templateUrl: 'auth/signup.html',
+      controller: 'AuthController'
+    })
+    .when('/mylists', {
+      templateUrl: 'lists/mylists.html',
+      controller: 'ListsController',
+      authenticate: true
+    })
+    .otherwise({
+      redirectTo: '/mylists'
+    });
+    
+    $httpProvider.interceptors.push('AttachTokens');
 
 })
 
-// attacktokens factory
+// attachtokens factory
 
 // run directive
