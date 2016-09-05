@@ -1,12 +1,20 @@
-angular.module("crowdcart", [])
 
 
+// create the crowdcart app
+angular.module("crowdcart", [
+  "crowdcart.auth",
+  "crowdcart.lists",
+  "crowdcart.services",
+  "ngRoute",
+  "ui.router"
+])
+
+//config/routing
+.config(function () {
 
 
-// create app module requiring supporting modules (auth, lists, services, others)
+})
 
-// config (routing)
+// attacktokens factory
 
-// ???
-
-// ???
+// run directive

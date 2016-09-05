@@ -1,6 +1,6 @@
 // services go here
 
-angular.module("crowdcar.service",[])
+angular.module("crowdcart.services",[])
 
 
 
