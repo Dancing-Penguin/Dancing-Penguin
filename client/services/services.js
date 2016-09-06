@@ -23,7 +23,7 @@ angular.module("crowdcart.services",[])
       method: "POST",
       url: "/api/signup",
       // clarify on data format
-      data: user
+      data: JSON.stringify(user)
     })
     .then(function(res) {
       return res.data.token
