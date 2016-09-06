@@ -24,28 +24,30 @@ module.exports = {
     });
   },
 
-  // getList method
-  getList: function(req, res){
-    var listid = req.body.listid;
+  // getLists method
+  getLists: function(req, res){
+    var userid = req.body.userid;
 
-    List.findOne({'_id': listid}, function(err, list){
-      if (err) { // notifies if error is thrown
-        console.log("mongo findOne list err: ", err);
-        helper.sendError(err, req, res);
-      } else {
-        if (!list) { // notifies if list is not found
-          helper.sendError("List not found", req, res);
-        } else { // list found, returns list
-          res.json(list);
-        }
-      }
-    });
+    List.find({'creator_id': userid})
+      .then(function(lists){
+        res.json(lists);
+      });
   },
 
   // getAllLists method
   getAllLists: function(req, res){
     List.find({})
       .then(function(lists){ // returns array of lists
+        res.json(lists);
+      });
+  },
+
+  // getJobs method
+  getJobs: function(req, res){
+    var userid = req.body.userid;
+
+    List.find({'deliverer_id': userid})
+      .then(function(lists){
         res.json(lists);
       });
   },

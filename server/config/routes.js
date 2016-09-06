@@ -14,11 +14,13 @@ module.exports = function(app, express){
   app.post('/api/signup', userHandler.signup);
 
   // POST - addList
-  app.post('/api/list', listHandler.addList);
-  // GET - getList
-  app.get('/api/list', listHandler.getList);
+  app.post('/api/lists', listHandler.addList);
+  // GET - getList (users lists)
+  app.get('/api/lists', listHandler.getLists);
   // GET - getAllLists
   app.get('/api/crowd', listHandler.getAllLists);
+  // GET - getJobs (users accepted jobs)
+  app.get('/api/jobs', listHandler.getJobs);
   // POST - updateStatus (reflects when jobs/lists are assigned)
   app.post('/api/status', listHandler.updateStatus);
 
