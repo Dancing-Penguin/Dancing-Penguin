@@ -20,12 +20,35 @@ angular.module("crowdcart", [
     .when('/myLists', {
       templateUrl: 'lists/myLists.html',
       controller: 'ListsController',
+    }
+    .when('/logout', {
+      templateUrl: 'auth/signin.html',
+      controller: 'AuthController'
+    })
+    .when('/mylists', {
+      templateUrl: 'lists/mylists.html',
+      //controller: 'ListsController',
+      authenticate: true
+    })
+    // .when('/alllists', {
+    //   //templateUrl: 'lists/alllists.html',
+    //   //controller: 'ListsController',
+    //   authenticate: true
+    // })
+    .when('/myjobs', {
+      templateUrl: 'jobs/myjobs.html',
+      //controller: '',
+      authenticate: true
+    })
+    .when('/findjobs', {
+      templateUrl: 'jobs/findjobs.html',
+      //controller: '',
       authenticate: true
     })
     .otherwise({
       redirectTo: "lists/myLists.html"
     });
-    
+
     $httpProvider.interceptors.push('AttachTokens');
 
 })
