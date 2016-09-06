@@ -17,13 +17,13 @@ angular.module("crowdcart", [
       templateUrl: 'auth/signup.html',
       controller: 'AuthController'
     })
-    .when('/mylists', {
-      templateUrl: 'lists/mylists.html',
+    .when('/myLists', {
+      templateUrl: 'lists/myLists.html',
       controller: 'ListsController',
       authenticate: true
     })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: "lists/myLists.html"
     });
     
     $httpProvider.interceptors.push('AttachTokens');
