@@ -121,3 +121,43 @@ angular.module("crowdcart.services",[])
   }
 
 })
+.factory("Jobs", function($http) {
+
+  // get all lists for specific user; since with routing to decide if that's the right meaning
+  var getMyJobs = function (id) {
+    return $http({
+      method: "GET",
+      url: "/api/lists",
+      data: id
+    })
+    .then(function (res) {
+      return res.data
+    })
+  }
+
+  //get all lists in system
+  var getAllList = function() {
+    return $http({
+      method: "GET",
+      url: "/api/crowd"
+    })
+  }
+
+  // update job status
+  var updateStatus = function (listId, status) {
+    return $http({
+      method: "POST",
+      url: "api/status",
+      // need to decide on format for this call
+      data: listId, status
+    })
+  }
+
+
+  return {
+    getMyJobs: getMyJobs,
+    getAllList: getAllList,
+    updateStatus: updateStatus,
+  }
+
+})

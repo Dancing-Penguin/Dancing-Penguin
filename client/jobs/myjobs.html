@@ -1,1 +1,12 @@
 <!-- List of Current Jobs of the User -->
+
+<div class="jobs">
+  <div class="job" ng-repeat="job in data.jobs | filter:search">
+  <div class="jobname">{{ job.list_name }}</div>
+  <div class="joblocation">{{ job.delivery_address.city}} , {{ job.delivery_address.state }} </div>
+  <div class="jobdue"> {{ job.due_at }} </div>
+  <div class="jobstatus"> {{ job.status }} </div>
+</div>
+
+<!-- TODO
+- Verify job data fields for lines 5-8 -->
