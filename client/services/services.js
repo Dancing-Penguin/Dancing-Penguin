@@ -13,13 +13,12 @@ angular.module("crowdcart.services",[])
       data: JSON.stringify(user)
     })
     .then(function(res) {
-      return res.data.token
+      return res.data
     })
   }
 
   // signup
   var signup = function(user) {
-    console.log(user)
     return $http({
       method: "POST",
       url: "/api/signup",
@@ -27,8 +26,7 @@ angular.module("crowdcart.services",[])
       data: JSON.stringify(user)
     })
     .then(function(res) {
-      console.log(res.data)
-      return res.data.token
+      return res.data
     })
   }
 
