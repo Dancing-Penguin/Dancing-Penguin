@@ -1,9 +1,7 @@
-
-
 // create the crowdcart app
 angular.module("crowdcart", [
-  "crowdcart.auth",
-  "crowdcart.lists",
+  // "crowdcart.auth",
+  // "crowdcart.lists",
   "crowdcart.services",
   "ngRoute"
 ])
@@ -25,13 +23,29 @@ angular.module("crowdcart", [
       authenticate: true
     })
     .otherwise({
-      redirectTo: '/mylists'
+      redirectTo: '/'
     });
     
     $httpProvider.interceptors.push('AttachTokens');
 
 })
 
-// attachtokens factory
+.factory('AttachTokens', function ($window) {
+  // this is an $httpInterceptor
+  // its job is to stop all out going request
+  // then look in local storage and find the user's token
+  // then add it to the header so the server can validate the request
+  var attach = {
+    request: function (object) {
+      var jwt = $window.localStorage.getItem('crowdcarttoken');
+      if (jwt) {
+        object.headers['x-access-token'] = jwt;
+      }
+      object.headers['Allow-Control-Allow-Origin'] = '*';
+      return object;
+    }
+  };
+  return attach;
+})
 
 // run directive

@@ -1,5 +1,9 @@
-angular.module('crowdcart.lists', [])
+angular.module("crowdcart.lists", [])
 
-.factory(ListsController, function($scope) {
+.controller(ListsController, function($scope) {
+
+  //TODO: What methods do we need?
+
+  //pageloadlinks/initialize??!?
   
 })

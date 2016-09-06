@@ -1,1 +1,11 @@
 <!-- sign in page/box -->
+
+<div id='signin'>
+  <h1>CrowdCart!</h1>
+  <form name="signin-form" ng-submit="signin()">
+    <input type="text" ng-model="user.username">
+    <input type="password" ng-model="user.password">
+    <button>signin</button>
+  </form>
+  <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
+</div>
