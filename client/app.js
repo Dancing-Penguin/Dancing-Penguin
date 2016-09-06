@@ -17,15 +17,44 @@ angular.module("crowdcart", [
       templateUrl: 'auth/signup.html',
       controller: 'AuthController'
     })
-    .when('/myLists', {
-      templateUrl: 'lists/myLists.html',
+    .when('/logout', {
+      templateUrl: 'auth/signin.html',
+      controller: 'AuthController'
+    })
+    .when('/mylists', {
+      templateUrl: 'lists/mylists.html',
       controller: 'ListsController',
       authenticate: true
     })
+     .when('/createnewlist', {
+      templateUrl: 'lists/createnewlist.html',
+      controller: 'ListsController',
+      authenticate: true
+    })
+    //All list view is not up yet
+
+    // .when('/alllists', {
+    //   templateUrl: 'lists/alllists.html',
+    //   controller: 'ListsController',
+    //   authenticate: true
+    // })
+
+    //Jobs controller not up yet
+
+    // .when('/myjobs', {
+    //   templateUrl: 'jobs/myjobs.html',
+    //   controller: '',
+    //   authenticate: true
+    // })
+    // .when('/findjobs', {
+    //   templateUrl: 'jobs/findjobs.html',
+    //   //controller: '',
+    //   authenticate: true
+    // })
     .otherwise({
       redirectTo: "lists/myLists.html"
     });
-    
+
     $httpProvider.interceptors.push('AttachTokens');
 
 })
