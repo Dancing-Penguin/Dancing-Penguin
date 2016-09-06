@@ -19,6 +19,7 @@ angular.module("crowdcart.services",[])
 
   // signup
   var signup = function(user) {
+    console.log(user)
     return $http({
       method: "POST",
       url: "/api/signup",
@@ -26,6 +27,7 @@ angular.module("crowdcart.services",[])
       data: JSON.stringify(user)
     })
     .then(function(res) {
+      console.log(res.data)
       return res.data.token
     })
   }
@@ -55,6 +57,7 @@ angular.module("crowdcart.services",[])
 
   // get all lists for specific user; since with routing to decide if that's the right meaning
   var getLists = function (id) {
+    console.log("getting all lists")
     return $http({
       method: "GET",
       url: "/api/lists",
