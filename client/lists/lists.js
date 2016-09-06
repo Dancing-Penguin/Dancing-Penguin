@@ -1,5 +1,5 @@
 angular.module('crowdcart.lists', [])
 
-.factory(ListsController, function($scope) {
+.controller(ListsController, function($scope) {
   
 })

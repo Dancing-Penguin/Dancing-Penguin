@@ -7,7 +7,7 @@ angular.module('crowdcart.auth', [])// make an auth module
     Auth.signin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('crowdcarttoken', token);
-        $location.path('/links');
+        $location.path('/lists');
       })
       .catch(function (error) {
         console.error(error);
@@ -18,14 +18,13 @@ angular.module('crowdcart.auth', [])// make an auth module
     Auth.signup($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('crowdcarttoken', token);
-        $location.path('/links');
+        $location.path('/lists');
       })
       .catch(function (error) {
         console.error(error);
       });
   };
 });
-
 
 // make and auth controller
 // signin - delegate to services to call server

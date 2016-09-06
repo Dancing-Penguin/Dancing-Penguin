@@ -2,7 +2,7 @@
 angular.module("crowdcart", [
   // "crowdcart.auth",
   // "crowdcart.lists",
-  // "crowdcart.services",
+  "crowdcart.services",
   "ngRoute"
 ])
 
@@ -23,7 +23,7 @@ angular.module("crowdcart", [
       authenticate: true
     })
     .otherwise({
-      redirectTo: '/mylists'
+      redirectTo: '/'
     });
     
     $httpProvider.interceptors.push('AttachTokens');

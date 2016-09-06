@@ -9,7 +9,7 @@ angular.module("crowdcart.services",[])
     return $http({
       method: "POST",
       url: "/api/signin",
-      // clarify on data formate
+      // clarify on data format
       data: user
     })
     .then(function(res) {
@@ -100,7 +100,7 @@ angular.module("crowdcart.services",[])
       method: "DELETE",
       url: "/api/lists",
       data: list /*id*/
-    }}
+    })
   }
 
   return {
@@ -113,8 +113,3 @@ angular.module("crowdcart.services",[])
   }
 
 })
-
-// Lists factory
-// get lists - call server - GET - options as filter?
-// save list - call server - PUT/POST (do we want to reuse for edit?)
-// delete list - call server - DELETE
