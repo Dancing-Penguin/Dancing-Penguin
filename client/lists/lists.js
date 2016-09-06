@@ -1,9 +1,9 @@
 angular.module("crowdcart.lists", [])
 
-.controller(ListsController, function($scope) {
+// .controller(ListsController, function($scope) {
 
-  //TODO: What methods do we need?
+//   //TODO: What methods do we need?
 
-  //pageloadlinks/initialize??!?
+//   //pageloadlinks/initialize??!?
   
-})
+// })
