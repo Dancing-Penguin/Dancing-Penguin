@@ -1,10 +1,12 @@
 <!-- list view for mylist -->
 <div class="lists">
   <div>myList</div>
+  <div><a href='#/createnewlist'>Create New List</a></div>
   <div class="list" ng-repeat="list in data.lists | filter:search">
   <div class="listname">{{ list.name }}</div>
   <div class="listlocation">{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</div>
   <div class="listdue">{{ list.due_at }}</div>
   </div>
+  <div><a href='#/createnewlist'>Add List</a></div>
   <pre>{{ username }}</pre>
 </div>
