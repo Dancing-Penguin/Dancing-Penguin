@@ -1,7 +1,7 @@
 // create the crowdcart app
 angular.module("crowdcart", [
-  // "crowdcart.auth",
-  // "crowdcart.lists",
+  "crowdcart.auth",
+  "crowdcart.lists",
   "crowdcart.services",
   "ngRoute"
 ])
