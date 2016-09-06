@@ -29,7 +29,8 @@ module.exports = {
         } else { // signin success, assigns jwt session token
           var token = jwt.encode(user, 'secret');
           res.json({
-            token: token //session token will be set on client side
+            token: token, //session token will be set on client side
+            userid: user['_id']
             // anything else to send back on success?
           });
         }
@@ -57,7 +58,8 @@ module.exports = {
             } else { // signup success, assigns jwt session token
               var token = jwt.encode(user, 'secret');
               res.json({
-                token: token //session token will be set on client side
+                token: token, //session token will be set on client side
+                userid: user['id']
                 // anything else to send back on success?
               });
             }
