@@ -1,2 +1,8 @@
 <!-- list view for mylist -->
-<div id="mylist">hohoho</div>
+<div class="lists">
+  <div class="list" ng-repeat="list in data.lists | filter:search">
+  <div class="listname">{{ list.list_name }}</div>
+  <div class="listlocation">{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</div>
+  <div class="listdue">{{ list.due_at }}</div>
+  </div>
+</div>

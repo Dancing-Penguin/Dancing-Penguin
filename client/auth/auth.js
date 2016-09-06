@@ -1,6 +1,7 @@
 angular.module('crowdcart.auth', [])// make an auth module
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
+  
   $scope.user = {};
 
   $scope.signin = function () {
