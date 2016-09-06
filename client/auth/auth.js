@@ -6,10 +6,10 @@ angular.module('crowdcart.auth', [])// make an auth module
 
   $scope.signin = function () {
     Auth.signin($scope.user)
-      .then(function (token) {
-        $window.localStorage.setItem('crowdcarttoken', token)
+      .then(function (data) {
+        $window.localStorage.setItem('crowdcarttoken', data.token)
         // saving username to localstorage
-        $window.localStorage.setItem('crowdcartuser', $scope.user.username);
+        $window.localStorage.setItem('crowdcartuser', data.userid);
         $location.path('/lists');
       })
       .catch(function (error) {
@@ -20,9 +20,9 @@ angular.module('crowdcart.auth', [])// make an auth module
   $scope.signup = function () {
     Auth.signup($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('crowdcarttoken', token);
+        $window.localStorage.setItem('crowdcarttoken', data.token);
         // saving username to localstorage
-        $window.localStorage.setItem('crowdcartuser', $scope.user.username);
+        $window.localStorage.setItem('crowdcartuser', data.userid);
         $location.path('/lists');
       })
       .catch(function (error) {
