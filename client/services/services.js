@@ -41,6 +41,13 @@ angular.module("crowdcart.services",[])
     $location.path("/signin")
   }
 
+  return {
+    signin: signin,
+    signup: signup,
+    isAuthenticated: isAuthenticated,
+    signout: signout
+  }
+
 
 })
 
