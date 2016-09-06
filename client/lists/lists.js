@@ -18,6 +18,19 @@ angular.module("crowdcart.lists", [])
       });
   };
 
+  //TODO add new list method, will be attached into createnewlist.html
+
+  $scope.addList = function () {
+  //   $scope.list.creator_id =
+  //   Lists.newList($scope.list)
+  //     .then(function () {
+  //       $location.path('/mylists');
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  };
+
   initialize();
 
 });
@@ -25,5 +38,5 @@ angular.module("crowdcart.lists", [])
 // .controller(ListsController, function($scope) {
 
 //   //TODO: What methods do we need?
-  
+
 // })
