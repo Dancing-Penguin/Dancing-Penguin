@@ -15,10 +15,37 @@ module.exports = {
     var email = req.body.email;
     var password = req.body.password;
 
+    // This uses a comparePasswords method of the user model.
+    // Uncomment this section and delete the following section when the comparePasswords method is available.
+    /*
+    User.findOne({'email': email}, function(err, user){
+      if (err) { // notifies if error is thrown
+        console.log("mongo findOne signin err: ", err);
+        helper.sendError(err, req, res);
+      } else {
+        if (!user) { // notifies if user is not found
+          helper.sendError("No user found", req, res);
+        } else {
+          user.comparePasswords(password, function(err, match){
+            if (!match) { // notifies if password is invalid
+              helper.sendError("Password invalid", req, res);
+            } else { // signin success, assigns jwt session token
+              var token = jwt.encode(user, 'secret');
+              res.json({
+                token: token, //session token will be set on client side
+                // userid also returned.  This should be assigned to a cookie also so that it is available for future server requests and db queries.
+                userid: user['_id']
+                // anything else to send back on success?
+              });
+            }
+          });
+        }
+      }
+    });
+    */
+
     // NOTE: This does a direct check for username and email.
-    // TODO:
-    // Setup password encryption in user model.
-    // Update controller to use comparePasswords method of model
+    // Delete this when comparePasswords method is added to user model and uncomment the above section.
     User.findOne({'email': email, 'password': password}, function(err, user){
       if (err) { // notifies if error is thrown
         console.log("mongo findOne signin err: ", err);
@@ -29,12 +56,15 @@ module.exports = {
         } else { // signin success, assigns jwt session token
           var token = jwt.encode(user, 'secret');
           res.json({
-            token: token //session token will be set on client side
+            token: token, //session token will be set on client side
+            // userid also returned.  This should be assigned to a cookie also so that it is available for future server requests and db queries.
+            userid: user['_id']
             // anything else to send back on success?
           });
         }
       }
     });
+
   },
 
   // signup method
@@ -57,7 +87,9 @@ module.exports = {
             } else { // signup success, assigns jwt session token
               var token = jwt.encode(user, 'secret');
               res.json({
-                token: token //session token will be set on client side
+                token: token, //session token will be set on client side
+                // userid also returned.  This should be assigned to a cookie also so that it is available for future server requests and db queries.
+                userid: user['id']
                 // anything else to send back on success?
               });
             }
