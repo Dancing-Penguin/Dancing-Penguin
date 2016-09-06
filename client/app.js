@@ -29,6 +29,29 @@ angular.module("crowdcart", [
      .when('/createnewlist', {
       templateUrl: 'lists/createnewlist.html',
       controller: 'ListsController',
+    }
+    .when('/logout', {
+      templateUrl: 'auth/signin.html',
+      controller: 'AuthController'
+    })
+    .when('/mylists', {
+      templateUrl: 'lists/mylists.html',
+      //controller: 'ListsController',
+      authenticate: true
+    })
+    // .when('/alllists', {
+    //   //templateUrl: 'lists/alllists.html',
+    //   //controller: 'ListsController',
+    //   authenticate: true
+    // })
+    .when('/myjobs', {
+      templateUrl: 'jobs/myjobs.html',
+      //controller: '',
+      authenticate: true
+    })
+    .when('/findjobs', {
+      templateUrl: 'jobs/findjobs.html',
+      //controller: '',
       authenticate: true
     })
     //All list view is not up yet
