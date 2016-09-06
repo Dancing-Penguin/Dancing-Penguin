@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var ListSchema = new mongoose.Schema({
+  name: String,
   created_at: {
     type: Date,
     default: Date.now
