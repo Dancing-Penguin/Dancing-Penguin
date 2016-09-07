@@ -4,7 +4,6 @@ angular.module("crowdcart.lists", [])
   // Your code here
   $scope.data = {};
 
-<<<<<<< 34cff2105abd2fb939d5e8f44a5df38531c71263
   $scope.list = {};
   $scope.list.delivery_address = {};
   $scope.list.items = [];
@@ -19,15 +18,6 @@ angular.module("crowdcart.lists", [])
         $scope.data.lists = lists;
       })
       .catch(function (error) {
-        console.error(error);
-      });
-      
-    Lists.getAllList()
-      .then(function(allLists){
-        $scope.data.allLists = allLists;
-        console.log('ALL LISTS: ', allLists);
-      })
-      .catch(function(error){
         console.error(error);
       });
   };
