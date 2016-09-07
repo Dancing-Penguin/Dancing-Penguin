@@ -136,14 +136,6 @@ angular.module("crowdcart.services",[])
     })
   }
 
-  //get all lists in system
-  var getAllList = function() {
-    return $http({
-      method: "GET",
-      url: "/api/crowd"
-    })
-  }
-
   // update job status when task complete
   var updateJobStatus = function (listId, status) {
     return $http({

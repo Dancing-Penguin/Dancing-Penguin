@@ -22,7 +22,7 @@ module.exports = function(app, express){
   // GET - getJobs (users accepted jobs)
   app.get('/api/jobs', listHandler.getJobs);
   // POST - getJobs (user updates job when completed)
-  app.post('/api/jobs', listHandler.updateStatusJobs);
+  app.post('/api/jobs', listHandler.updateJobStatus);
   // POST - updateStatus (reflects when jobs/lists are assigned)
   app.post('/api/status', listHandler.updateStatus);
 
