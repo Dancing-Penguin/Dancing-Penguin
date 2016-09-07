@@ -53,7 +53,7 @@ module.exports = {
   },
 
   // updateJobStatus method
-  updateJobStatus: function(req, res){
+  updateStatusJobs: function(req, res){
     // TODO: Fill Out
   },
 
