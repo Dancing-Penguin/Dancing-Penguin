@@ -55,7 +55,7 @@ module.exports = {
   // updateJobStatus method
   updateJobStatus: function(req, res){
     // TODO: Fill Out
-  }
+  },
 
   // updateStatus method
   updateStatus: function(req, res){
