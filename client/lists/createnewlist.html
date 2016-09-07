@@ -1,4 +1,4 @@
-<div class='newlist'>
+<div class='newlist' ng-controller="ListsController">
   <div>Create New List Page</div>
 
   <!-- inputs here -->
@@ -12,8 +12,9 @@
     <div>Details</div>
     <input type="number" ng-model="list.offer_price" placeholder="Enter your offer price here">
     <input type="Date" ng-model="list.due_at" placeholder="Enter your expected due date here">
-
-
+    <a href="#/mylists">
+      <input type="button" value="Submit">
+    </a>
     <!-- Add item here -->
 
 

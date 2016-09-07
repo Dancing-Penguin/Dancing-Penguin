@@ -65,6 +65,7 @@ angular.module("crowdcart.services",[])
       data: JSON.stringify(user)
     })
     .then(function (res) {
+      console.log('lists: ', res.data)
       return res.data
     })
   }
