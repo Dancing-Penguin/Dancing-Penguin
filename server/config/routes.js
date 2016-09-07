@@ -16,7 +16,8 @@ module.exports = function(app, express){
   // POST - addList
   app.post('/api/lists', listHandler.addList);
   // GET - getList (users lists)
-  app.get('/api/lists', listHandler.getLists);
+  // added * so can temporarily pass through userid
+  app.get('/api/lists*', listHandler.getLists);
   // GET - getAllLists
   app.get('/api/crowd', listHandler.getAllLists);
   // GET - getJobs (users accepted jobs)

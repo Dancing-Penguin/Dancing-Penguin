@@ -5,11 +5,11 @@ angular.module("crowdcart.lists", [])
 
   $scope.data = {};
 
-  $scope.username = $window.localStorage.getItem('crowdcartuser')
+  $scope.userid = $window.localStorage.getItem('crowdcartuser')
 
   var initialize = function () {
     console.log($scope)
-    Lists.getLists()
+    Lists.getLists($scope.userid)
       .then(function (lists) {
         $scope.data.lists = lists;
       })

@@ -26,7 +26,10 @@ module.exports = {
 
   // getLists method
   getLists: function(req, res){
-    var userid = req.body.userid;
+    // var userid = req.body.userid;
+
+    // temporarily passing through url
+    var userid = req.params[0].slice(1);
 
     List.find({'creator_id': userid})
       .then(function(lists){
