@@ -21,6 +21,7 @@ angular.module("crowdcart.lists", [])
         console.error(error);
       });
 
+
     Lists.getAllList()
       .then(function(allLists){
         $scope.data.allLists = allLists.filter(function(list){
