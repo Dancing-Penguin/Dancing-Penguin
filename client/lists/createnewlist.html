@@ -2,7 +2,7 @@
   <div>Create New List Page</div>
 
   <!-- inputs here -->
-  <form name="addListForm" ng-submit='addList()'>
+  <form name="addListForm" >
     <input type="text" ng-model="list.name" placeholder="Enter the list name here">
     <div>Delivery Address</div>
     <input type="text" ng-model="list.delivery_address.street" placeholder="Enter your street here">
@@ -16,11 +16,23 @@
       <input type="button" value="Submit">
     </a>
     <!-- Add item here -->
+    <div>Item</div>
+
+      <form name="addItemForm">
+        <input type="text" ng-model="item.item_name" placeholder="Enter the item name here">
+        <input type="number" ng-model="item.quantity" placeholder="Enter the quantity here">
+        <input type="number" ng-model="item.unite_price" placeholder="Enter the unit price here">
+        <button ng-click='list.items.push(item); item = {};'>Add more items</button>
+      </form>
 
 
 
+      <div>{{list.items | json}}</div>
 
+    <button ng-click='addList()'>Submit List</button>
   </form>
+
+
 
 
 

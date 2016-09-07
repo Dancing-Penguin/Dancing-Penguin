@@ -1,11 +1,14 @@
 angular.module("crowdcart.lists", [])
 
-.controller("ListsController", function ($scope, Lists, $window) {
+.controller("ListsController", function ($scope, Lists, $window, $location) {
   // Your code here
-
   $scope.data = {};
 
-  $scope.userid = $window.localStorage.getItem('crowdcartuser')
+  $scope.list = {};
+  $scope.list.delivery_address = {};
+  $scope.list.items = [];
+
+  $scope.userid = $window.localStorage.getItem('crowdcartuser');
 
   var initialize = function () {
     console.log('userId: ',$scope.userid)
@@ -21,14 +24,18 @@ angular.module("crowdcart.lists", [])
   //TODO add new list method, will be attached into createnewlist.html
 
   $scope.addList = function () {
-  //   $scope.list.creator_id =
-  //   Lists.newList($scope.list)
-  //     .then(function () {
-  //       $location.path('/mylists');
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
+
+    $scope.list.creator_id = $scope.userid;
+    console.log('list', $scope.list);
+    Lists.newList($scope.list)
+      .then(function () {
+        $location.path('/');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
   };
 
   initialize();
