@@ -49,6 +49,7 @@ angular.module("crowdcart.lists", [])
   };
 
   $scope.addJob = function(list) {
+
     // Prefix 786 for all new jobs
     // Note: Prior to this method.. deliverer_id = userid
     // causing issues where every list was being displayed
