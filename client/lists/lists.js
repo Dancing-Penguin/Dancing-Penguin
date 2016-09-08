@@ -23,7 +23,9 @@ angular.module("crowdcart.lists", [])
 
     Lists.getAllList()
       .then(function(allLists){
-        $scope.data.allLists = allLists;
+        $scope.data.allLists = allLists.filter(function(list){
+          return !list.deliverer_id && list.creator_id !== $scope.userid;
+        });
         console.log('ALL LISTS: ', allLists);
       })
       .catch(function(error){
