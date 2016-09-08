@@ -4,24 +4,33 @@
 <html ng-app="crowdcart">
   <head>
     <title>CrowdCart!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.3/ui-bootstrap-tpls.min.js"></script>
   </head>
   <body ng-controller="AppController">
     <div className="top-nav">
-      <div className="top-nav-left">
-        <ul>
-          <li>Logo/CrowdCart</li>
-          <li><a href='#/mylists'>MyLists</a></li>
-          <li><a href='#/alllists'>AllLists</a></li>
-          <li><a href='#/myjobs'>MyJobs</a></li>
-        <ul>
-      </div>
       <div className="top-nav-right">
-        <ul>
-          <li ng-if="hasSession"><a ng-click="signout()" href='#/logout'>Logout</a><li>
-<!--           this can prob be handled with ng-view -->
-        </ul>
+        <span><div ng-if="hasSession">
+          <a ng-click="signout()" href='#/logout' class="btn pull-right btn-primary btn-default active">Logout</a>
+        </div></span>
       </div>
-    </div>
+      <div className="top-nav-left">
+        <hr />
+        <span><a href='#/mylists' class="btn btn-primary btn-lg active">MyLists</a></span>
+        <span><a href='#/alllists' class="btn btn-primary btn-lg active">AllLists</a></span>
+        <span><a href='#/myjobs' class="btn btn-primary btn-lg active">MyJobs</a></span>
+      </div>
+
+<!--           this can prob be handled with ng-view -->
+
+
+
+
+    <!-- TESTING BOOTSTRAP BELOW -->
+
+
+    <!-- END OF TESTING BOOTSTRAP -->
+
     <h1>CrowdCart!</h1>
     <div ng-view></div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
