@@ -30,7 +30,8 @@ angular.module("crowdcart.lists", [])
     console.log('list', $scope.list);
     Lists.newList($scope.list)
       .then(function () {
-        $location.path('/');
+        console.log('rediction');
+        $location.path('/mylists.html');
       })
       .catch(function (error) {
         console.log(error);

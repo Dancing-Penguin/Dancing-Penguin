@@ -19,7 +19,8 @@ module.exports = {
         console.log("mongo create list err: ", err);
         helper.sendError(err, req, res);
       } else { // list created, sends 201 status
-        res.status(201);
+        //res.status(201);
+        res.json(list);
       }
     });
   },
