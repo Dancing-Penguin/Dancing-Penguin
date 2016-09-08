@@ -2,10 +2,11 @@
 <div class="lists">
   <div>myList</div>
   <div><a href='#/createnewlist'>Create New List</a></div>
+  <div class="header"><span>list name</span><span>location</span><span>due in</span></div>
   <div class="list" ng-repeat="list in data.lists | filter:search">
-  <div class="listname">{{ list.name }}</div>
-  <div class="listlocation">{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</div>
-  <div class="listdue">{{ list.due_at }}</div>
+  <span class="listname">{{ list.name }}</span>
+  <span class="listlocation">{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</span>
+  <span class="listdue">{{ list.due_at }}</span>
   </div>
   <div><a href='#/createnewlist'>Add List</a></div>
   <pre>{{ username }}</pre>
