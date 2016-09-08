@@ -53,14 +53,14 @@ module.exports = {
   deleteList: function(req, res){
     var listid = req.params.id;
 
-    List.deleteOne({'_id': listid}, function(err, result){
+    List.remove({'_id': listid}, function(err, result){
       if (err) { // notifies if error is thrown
         console.log("mongo deleteOne list err: ", err);
         helper.sendError(err, req, res);
       } else { // delete successful, sends result of operation
         res.json(result);
       }
-    })
+    });
   },
 
   // getOneList method
