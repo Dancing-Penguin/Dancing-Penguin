@@ -1,1 +1,31 @@
 <!-- individual list item with details -->
+<div class="listdetail">
+  <div>{{ displayList.name }}</div>
+  <div>Delivery Address: {{ displayList.delivery_address.street}}</div>
+  <div>City: {{ displayList.delivery_address.city}}<div>
+  <div>State: {{ displayList.delivery_address.ca}}</div>
+  <div>ZIP: {{ displayList.delivery_address.zip_code}}</div>
+  <div>Details</div>
+  <div>Offer: {{ displayList.offer_price }}</div>
+  <div>Due At: {{ displayList.due_at }}</div>
+  <div>Items</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Unit Price</th>
+        <tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in displayList.items">
+          <td>{{ item.item_name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.unite_price }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
+

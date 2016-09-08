@@ -1,6 +1,6 @@
 angular.module("crowdcart.lists", [])
 
-.controller("ListsController", function ($scope, Lists, $window, $location) {
+.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope) {
   // Your code here
   $scope.data = {};
 
@@ -8,10 +8,12 @@ angular.module("crowdcart.lists", [])
   $scope.list.delivery_address = {};
   $scope.list.items = [];
 
+  // store userid into local storage (same level as auth token)
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
 
   var initialize = function () {
-    console.log('userId: ',$scope.userid)
+    // console.log('userId: ',$scope.userid)
+    // console.log($rootScope)
 
     Lists.getLists($scope.userid)
       .then(function (lists) {
@@ -24,12 +26,18 @@ angular.module("crowdcart.lists", [])
     Lists.getAllList()
       .then(function(allLists){
         $scope.data.allLists = allLists;
-        console.log('ALL LISTS: ', allLists);
+        // console.log('ALL LISTS: ', allLists);
       })
       .catch(function(error){
         console.error(error);
       });
   };
+
+  $scope.displayDetail = function() {
+    // store clicked data onto rootscope
+    $rootScope.displayList = this.list
+    $location.path("/listdetail")
+  }
 
   //TODO add new list method, will be attached into createnewlist.html
 

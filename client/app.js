@@ -42,6 +42,11 @@ angular.module("crowdcart", [
       controller: 'JobsController',
       authenticate: true
     })
+    .when('/listdetail', {
+      templateUrl: 'lists/listdetail.html',
+      controller: 'ListsController',
+      authenticate: true
+    })
     // .when('/findjobs', {
     //   templateUrl: 'jobs/findjobs.html',
     //   //controller: '',
