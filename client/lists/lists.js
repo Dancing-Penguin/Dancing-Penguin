@@ -12,6 +12,7 @@ angular.module("crowdcart.lists", [])
 
   var initialize = function () {
     console.log('userId: ',$scope.userid)
+
     Lists.getLists($scope.userid)
       .then(function (lists) {
         $scope.data.lists = lists;
