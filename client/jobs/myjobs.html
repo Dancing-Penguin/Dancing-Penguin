@@ -1,9 +1,10 @@
 <!-- List of Current Jobs of the User -->
 
 <div class="jobs">
+  <h3> My JOBS </h3>
   <div class="job" ng-repeat="job in data.jobs | filter:search">
-  <div class="jobname">{{ job.list_name }}</div>
-  <div class="joblocation">{{ job.delivery_address.city}} , {{ job.delivery_address.state }} </div>
-  <div class="jobdue"> {{ job.due_at }} </div>
-  <div class="jobstatus"> {{ job.status }} </div>
+  <div class="jobname">List: {{ job.name }}</div>
+  <div class="joblocation">Location: {{ job.delivery_address.city}} , {{ job.delivery_address.state }} </div>
+  <div class="jobdue">Due: {{ job.due_at }} </div>
+  <div class="jobstatus">Status: {{ job.status }} </div>
 </div>

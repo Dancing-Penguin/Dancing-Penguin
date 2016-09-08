@@ -46,8 +46,8 @@ angular.module("crowdcart.lists", [])
       });
   };
 
-  $scope.addJob = function() {
-
+  $scope.addJob = function(list) {
+    list.deliverer_id = $scope.userid;
   }
 
   initialize();

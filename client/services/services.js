@@ -166,7 +166,6 @@ angular.module("crowdcart.services",[])
 
   return {
     getJobs: getJobs,
-    getAllList: getAllList,
     updateJobStatus: updateJobStatus,
     deleteJob: deleteJob
   }

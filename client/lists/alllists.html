@@ -5,10 +5,10 @@
     <h2>All Available Lists</h2>
   </div>
   <div class="lists" ng-repeat="list in data.allLists | filter:search">
-    <div class="listname">{{ list.name }}</div>
-    <div class="listlocation">{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</div>
-    <div class="listdue">{{ list.due_at }}</div>
-    <div><a ng-click="addJob()" href='#/myjobs'>Add to My Jobs</a></div>
+    <div class="listname">List: {{ list.name }}</div>
+    <div class="listlocation">Location: {{ list.delivery_address.city }}, {{ list.delivery_address.state }}</div>
+    <div class="listdue">Due: {{ list.due_at }}</div>
+    <div><a ng-click="addJob(list)" href='#/myjobs'>Add to My Jobs</a></div>
   </div>
 
   <pre>{{ username }}</pre>

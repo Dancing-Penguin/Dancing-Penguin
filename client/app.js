@@ -2,6 +2,7 @@
 angular.module("crowdcart", [
   "crowdcart.auth",
   "crowdcart.lists",
+  "crowdcart.jobs",
   "crowdcart.services",
   "ngRoute"
 ])
@@ -31,21 +32,16 @@ angular.module("crowdcart", [
       controller: 'ListsController',
       authenticate: true
     })
-    //All list view is not up yet
-
     .when('/alllists', {
       templateUrl: 'lists/alllists.html',
       controller: 'ListsController',
       authenticate: true
     })
-
-    //Jobs controller not up yet
-
-    // .when('/myjobs', {
-    //   templateUrl: 'jobs/myjobs.html',
-    //   controller: '',
-    //   authenticate: true
-    // })
+    .when('/myjobs', {
+      templateUrl: 'jobs/myjobs.html',
+      controller: 'JobsController',
+      authenticate: true
+    })
     // .when('/findjobs', {
     //   templateUrl: 'jobs/findjobs.html',
     //   //controller: '',
