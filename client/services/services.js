@@ -103,7 +103,7 @@ angular.module("crowdcart.services",[])
     })
   }
 
-  // not mvp; for editing lists later
+  // Used when Updating Job Deliverer_id
   var updateList = function (list) {
     return $http({
       method: "PUT",
@@ -136,10 +136,11 @@ angular.module("crowdcart.services",[])
   // get all jobs for specific user
   var getJobs = function (id) {
     console.log("getting all jobs")
+    var user = {userid: id}
     return $http({
       method: "GET",
-      url: "/api/jobs",
-      data: id
+      url: "/api/jobs/" + id,
+      data: JSON.stringify(user)
     })
     .then(function (res) {
       return res.data

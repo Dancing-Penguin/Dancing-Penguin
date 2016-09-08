@@ -25,6 +25,30 @@ module.exports = {
     });
   },
 
+   // updateList method
+  updateList: function(req, res){
+    var id = req.body.creator_id;
+    var due_at = req.body.due_at;
+    var name = req.body.name;
+
+    // var conditions = {'creator_id': id, 'due_at': due_at, 'name': name, 'deliverer_id': ''};
+    // var update = {'deliverer_id': req.body.deliverer_id};
+
+    // List.update(conditions, update)
+
+    List.findOne({'creator_id': id, 'due_at': due_at, 'name': name}, function(err, list){
+          if (err) {
+            console.log('List Findone ERROR ****** ');
+            console.error(err);
+          }
+          list.deliverer_id = req.body.deliverer_id;
+          list.save();
+          res.json(list);
+        }
+    );
+
+  },
+
   // getLists method
   getLists: function(req, res){
     // var userid = req.body.userid;
@@ -48,8 +72,8 @@ module.exports = {
 
   // getJobs method
   getJobs: function(req, res){
-    var userid = req.body.userid;
-
+    var userid = '786'+ req.params.id;
+    console.log('$$$$$$$$$$$')
     List.find({'deliverer_id': userid})
       .then(function(lists){
         res.json(lists);

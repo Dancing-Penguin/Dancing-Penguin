@@ -35,6 +35,8 @@ angular.module("crowdcart.lists", [])
 
   $scope.addList = function () {
     $scope.list.creator_id = $scope.userid;
+    // Defaulting deliverer_id to empty string
+    $scope.list.deliverer_id = '';
     console.log('list', $scope.list);
     Lists.newList($scope.list)
       .then(function () {
@@ -47,7 +49,20 @@ angular.module("crowdcart.lists", [])
   };
 
   $scope.addJob = function(list) {
-    list.deliverer_id = $scope.userid;
+    // Prefix 786 for all new jobs
+    // Note: Prior to this method.. deliverer_id = userid
+    // causing issues where every list was being displayed
+    // in My Jobs
+    list.deliverer_id = '786' + $scope.userid;
+
+    // Update DB list with new deliverer_id
+    Lists.updateList(list)
+      .then(function () {
+        //$location.path('/mylists.html');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   initialize();

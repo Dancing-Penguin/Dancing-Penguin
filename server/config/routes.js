@@ -18,10 +18,12 @@ module.exports = function(app, express){
   // GET - getList (users lists)
   // added * so can temporarily pass through userid
   app.get('/api/lists/:id', listHandler.getLists);
+  // PUT - for updating list
+  app.put('/api/lists', listHandler.updateList);
   // GET - getAllLists
   app.get('/api/crowd', listHandler.getAllLists);
   // GET - getJobs (users accepted jobs)
-  app.get('/api/jobs', listHandler.getJobs);
+  app.get('/api/jobs/:id', listHandler.getJobs);
   // POST - getJobs (user updates job when completed)
   app.post('/api/jobs', listHandler.updateJobStatus);
   // POST - updateStatus (reflects when jobs/lists are assigned)
