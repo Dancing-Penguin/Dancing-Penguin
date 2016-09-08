@@ -49,6 +49,24 @@ module.exports = {
 
   },
 
+  // getOneList method
+  getOneList: function(req, res){
+    var listid = req.params.id;
+
+    List.findOne({'_id': listid}, function(err, list){
+      if (err) { // notifies if error is thrown
+        console.log("mongo findOne list err: ", err);
+        helper.sendError(err, req, res);
+      } else {
+        if (!list) { // notifies if list is not found
+          helper.sendError("List not found", req, res);
+        } else { // list found, returns list
+          res.json(list);
+        }
+      }
+    });
+  },
+
   // getLists method
   getLists: function(req, res){
     // var userid = req.body.userid;

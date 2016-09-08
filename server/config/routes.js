@@ -15,8 +15,9 @@ module.exports = function(app, express){
 
   // POST - addList
   app.post('/api/lists', listHandler.addList);
-  // GET - getList (users lists)
-  // added * so can temporarily pass through userid
+  // GET - getList (single list)
+  app.get('/api/list/:id', listHandler.getOneList);
+  // GET - getLists (users lists)
   app.get('/api/lists/:id', listHandler.getLists);
   // PUT - for updating list
   app.put('/api/lists', listHandler.updateList);
