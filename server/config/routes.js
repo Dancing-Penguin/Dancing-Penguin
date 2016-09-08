@@ -21,6 +21,8 @@ module.exports = function(app, express){
   app.get('/api/lists/:id', listHandler.getLists);
   // PUT - for updating list
   app.put('/api/lists', listHandler.updateList);
+  // DELETE - deletes a single list
+  app.delete('/api/lists/:id', listHandler.deleteList);
   // GET - getAllLists
   app.get('/api/crowd', listHandler.getAllLists);
   // GET - getJobs (users accepted jobs)
