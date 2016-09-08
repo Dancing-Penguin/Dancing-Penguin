@@ -21,6 +21,14 @@ angular.module("crowdcart.lists", [])
         console.error(error);
       });
 
+    Lists.getAllList()
+      .then(function(allLists){
+        $scope.data.allLists = allLists;
+        console.log('ALL LISTS: ', allLists);
+      })
+      .catch(function(error){
+        console.error(error);
+      });
   };
 
   //TODO add new list method, will be attached into createnewlist.html
@@ -30,7 +38,8 @@ angular.module("crowdcart.lists", [])
     console.log('list', $scope.list);
     Lists.newList($scope.list)
       .then(function () {
-        $location.path('/');
+        console.log('rediction');
+        $location.path('/mylists.html');
       })
       .catch(function (error) {
         console.log(error);
