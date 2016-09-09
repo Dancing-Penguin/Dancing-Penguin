@@ -12,6 +12,7 @@
       <td>{{ job.name }}</td>
       <td>{{ job.delivery_address.city }}, {{ job.delivery_address.state }}</td>
       <td>{{ job.due_at }}</td>
+      <td><a ng-click="deleteJob(job); getJobs();" class="btn btn-primary btn-sm active">Delete Job</a></td>
     </tr>
   </table>
 

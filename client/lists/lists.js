@@ -24,7 +24,7 @@ angular.module("crowdcart.lists", [])
     Lists.getAllList()
       .then(function(allLists){
         $scope.data.allLists = allLists.filter(function(list){
-          return !list.deliverer_id && list.creator_id !== $scope.userid;
+          return (!list.deliverer_id || list.deliverer_id === '') && list.creator_id !== $scope.userid;
         });
         console.log('ALL LISTS: ', allLists);
       })
@@ -44,7 +44,7 @@ angular.module("crowdcart.lists", [])
     Lists.newList($scope.list)
       .then(function () {
         console.log('rediction');
-        $location.path('/mylists.html');
+        $location.path('/alllist.html');
       })
       .catch(function (error) {
         console.log(error);
@@ -68,6 +68,7 @@ angular.module("crowdcart.lists", [])
         console.log(error);
       });
   }
+
 
   initialize();
 
