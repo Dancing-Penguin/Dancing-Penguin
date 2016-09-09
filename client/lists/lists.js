@@ -1,7 +1,7 @@
 angular.module("crowdcart.lists", ["angularMoment"])
 
 .controller("ListsController", function ($scope, Lists, $window, $location, $rootScope, $routeParams, $interval) {
-  
+
   // storage objs
   $scope.data = {};
   $scope.list = {};
@@ -28,6 +28,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
         })
     }
 
+    //Get all lists belong to user
     Lists.getLists($scope.userid)
       .then(function (lists) {
         $scope.data.lists = lists;
@@ -36,9 +37,11 @@ angular.module("crowdcart.lists", ["angularMoment"])
         console.error(error);
       });
 
+    //Get all lists the do not have deliverer and do not belong to user
     Lists.getAllList()
       .then(function(allLists){
         $scope.data.allLists = allLists.filter(function(list){
+          //Only showing the list that has not deliverer, and those that do not belong to user
           return (!list.deliverer_id || list.deliverer_id === '') && list.creator_id !== $scope.userid;
         });
         // console.log('ALL LISTS: ', allLists);
@@ -54,8 +57,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
     $location.path("/listdetail/" + listid)
   }
 
-  //TODO add new list method, will be attached into createnewlist.html
-
+  //add new list method, will be attached into createnewlist.html
   $scope.addList = function () {
     $scope.list.creator_id = $scope.userid;
     // Defaulting deliverer_id to empty string
@@ -71,6 +73,8 @@ angular.module("crowdcart.lists", ["angularMoment"])
       });
   };
 
+
+  //Add a job, update the deliverer id to user's id
   $scope.addJob = function(list) {
 
     // Prefix 786 for all new jobs
@@ -82,7 +86,8 @@ angular.module("crowdcart.lists", ["angularMoment"])
     // Update DB list with new deliverer_id
     Lists.updateList(list)
       .then(function () {
-        //$location.path('/mylists.html');
+        console.log("add job", list)
+        $location.path('/myjobs');
       })
       .catch(function (error) {
         console.log(error);
