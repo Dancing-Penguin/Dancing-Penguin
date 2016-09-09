@@ -1,7 +1,7 @@
-<!-- List of Current Jobs of the User -->
+<!-- List of Current Jobs of the User below -->
 
 <div class="jobs">
-  <h3> My JOBS </h3>
+  <h3> My Jobs </h3>
   <table class="table table-hover">
     <tr>
       <th>List Name</th>
@@ -9,16 +9,9 @@
       <th>Due Date</th>
     </tr>
     <tr ng-repeat="job in data.jobs | filter:search">
-      <td>{{ list.name }}</td>
-      <td>{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</td>
-      <td>{{ list.due_at }}</td>
+      <td>{{ job.name }}</td>
+      <td>{{ job.delivery_address.city }}, {{ job.delivery_address.state }}</td>
+      <td>{{ job.due_at }}</td>
     </tr>
   </table>
-  <div class="job" ng-repeat="job in data.jobs | filter:search">
-    <div class="jobname">List: {{ job.name }}</div>
-    <div class="joblocation">Location: {{ job.delivery_address.city}} , {{ job.delivery_address.state }} </div>
-    <div class="jobdue">Due: {{ job.due_at }} </div>
-    <div class="jobstatus">Status: {{ job.status }} </div>
-  </div>
-</div>
 
