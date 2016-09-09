@@ -77,12 +77,20 @@ angular.module("crowdcart.services",[])
 
   // get one list when given listid
   var getOneList = function(listid) {
+<<<<<<< d70442701e704ab20ae04d61bce1c92cd6a9236e
+=======
+    console.log("listid:", listid)
+>>>>>>> (feat) detail - saving list through params
     return $http({
       method: "GET",
       url: "/api/list/" + listid
     })
     .then(function(res) {
+<<<<<<< d70442701e704ab20ae04d61bce1c92cd6a9236e
       return res.data
+=======
+      console.log("res:", res)
+>>>>>>> (feat) detail - saving list through params
     })
   }
 
