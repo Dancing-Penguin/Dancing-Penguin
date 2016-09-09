@@ -1,15 +1,15 @@
 <!-- list view for mylist -->
 <div class="lists">
-  <div>myList</div>
-  <div><a href='#/createnewlist'>Create New List</a></div>
+  <h3>My Lists</h3>
+  <div ng-if="data.lists.length > 5"><a href='#/createnewlist'>Create New List</a></div>
     <table class="table table-hover">
       <thead>
         <tr class="header">
-          <th>list name</th>
-          <th>location</th>
-          <th>due on</th>
-          <th>due in</th>
-          <th>due in</th>
+          <th>List Name</th>
+          <th>Location</th>
+          <th>Due On</th>
+          <th>Due In</th>
+          <th>Due In</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -28,5 +28,5 @@
     </table>
   </div>
   <div><a href='#/createnewlist' class="btn btn-primary btn-sm active">Add List</a></div>
-  <pre>{{ displayList.name }}</pre>
+  <!-- <pre>{{ displayList.name }}</pre> -->
 </div>
