@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="list" ng-repeat="list in data.lists | filter:search">
+        <tr class="list" ng-repeat="list in data.lists | orderBy:'due_at' | filter:search">
           <td ng-click="displayDetail(this.list._id)">{{ list.name }}</td>
           <td ng-click="displayDetail(this.list._id)">{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</td>
           <td ng-click="displayDetail(this.list._id)"><span am-time-ago="list.due_at"></span></td>

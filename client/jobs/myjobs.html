@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="job in data.jobs | filter:search" >
+      <tr ng-repeat="job in data.jobs | orderBy:'due_at' | filter:search" >
       <!-- this is lame way to do it to prevent clicking delete to show details -->
         <td ng-click="displayJobDetail(this.job._id)">{{ job.name }}</td>
         <td ng-click="displayJobDetail(this.job._id)">{{ job.delivery_address.city }}, {{ job.delivery_address.state }}</td>
