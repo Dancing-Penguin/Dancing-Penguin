@@ -15,11 +15,15 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
   // store userid into local storage (same level as auth token)
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
-  $scope.user = $window.localStorage.getItem('crowdcartuserinfo');
+  $scope.street = $window.localStorage.getItem('crowdcartuserstreet');
+  $scope.state = $window.localStorage.getItem('crowdcartuserstate');
+  $scope.city = $window.localStorage.getItem('crowdcartusercity');
+  $scope.zip = $window.localStorage.getItem('crowdcartuserzip');
 
   var initialize = function () {
     // console.log('userId: ',$scope.userid)
     // console.log($rootScope)
+    console.log('user', $scope.city)
 
     // is routePararms exists it means directed here via URL
     if ($routeParams.listid) {
@@ -62,7 +66,16 @@ angular.module("crowdcart.lists", ["angularMoment"])
     $scope.list.creator_id = $scope.userid;
     // Defaulting deliverer_id to empty string
     $scope.list.deliverer_id = '';
-    // console.log('list', $scope.list);
+
+    //If user choose the default address, assign the default address to the list to be added
+    if($scope.isDefaultAdd) {
+      $scope.list.delivery_address = {
+        street: $scope.street,
+        city: $scope.city,
+        state: $scope.state,
+        zip_code: $scope.zip
+      }
+    }
     Lists.newList($scope.list)
       .then(function () {
         console.log('rediction');

@@ -40,6 +40,10 @@ angular.module("crowdcart.services",[])
   var signout = function () {
     $window.localStorage.removeItem("crowdcarttoken");
     $window.localStorage.removeItem("crowdcartuser");
+    $window.localStorage.removeItem("crowdcartuserstreet");
+    $window.localStorage.removeItem("crowdcartusercity");
+    $window.localStorage.removeItem("crowdcartuserstate");
+    $window.localStorage.removeItem("crowdcartuserzip");
     $location.path("/signin")
   }
 

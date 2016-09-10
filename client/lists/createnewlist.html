@@ -1,21 +1,15 @@
-<div class='newlist contents-container'>
+<div class="newlist contents-container">
   <div><h1>Create New List Page</h1></div>
   <hr />
 
   <!-- Order Details -->
    <div><h3>Order Details</h3></div>
   <!-- inputs here -->
-  <form name="addListForm" >
+   <form name="addListForm" >
     <h4>List Name</h4>
     <input type="text" ng-model="list.name" placeholder="Descriptive Name">
 
 
-   <!--  <div>
-    <input type="text" ng-model="list.delivery_address.street" placeholder="Enter your street here">
-    <input type="text" ng-model="list.delivery_address.city" placeholder="Enter your city here">
-    <input type="text" ng-model="list.delivery_address.state" placeholder="Enter your state here">
-    <input type="text" ng-model="list.delivery_address.zip_code" placeholder="Enter your zip code here">
-    </div> -->
     <span>
       <h4>Offer Price</h4>
       <input type="number" ng-model="list.offer_price" placeholder="Offer Price">
@@ -54,18 +48,29 @@
     </span>
 
    <!-- Deliver Details -->
-   <div><h3>Delivery Details</h3></div>
+    <div><h3>Delivery Details</h3></div>
     <h4>Delivery Address</h4>
-    <div>
-      <input type="text" ng-model="list.delivery_address.street" placeholder="Street Address">
-      <input type="text" ng-model="list.delivery_address.city" placeholder="City">
-      <input type="text" ng-model="list.delivery_address.state" placeholder="State">
-      <input type="text" ng-model="list.delivery_address.zip_code" placeholder="Zip">
-    </div>
-    <a ng-click="" class="btn btn-primary btn-sm active" style="margin-top:5px">Use default address</a>
+    <div ng-init="isNewAdd=true; isDefaultAdd=false">
+      <a ng-show="isNewAdd" ng-click="isNewAdd=!isNewAdd; isDefaultAdd = ! isDefaultAdd" class="btn btn-primary btn-sm active">Use My Default Address</a>
 
-    <!-- Add item here -->
-    <div><h3>Items</h3></div>
+      <a ng-show="isDefaultAdd" ng-click="isNewAdd=!isNewAdd; isDefaultAdd = ! isDefaultAdd" class="btn btn-primary btn-sm active">Deliver To a New Address</a>
+
+      <div ng-show="isNewAdd" style="margin-top:5px">
+        <input type="text" ng-model="list.delivery_address.street" placeholder="Enter your street here">
+        <input type="text" ng-model="list.delivery_address.city" placeholder="Enter your city here">
+        <input type="text" ng-model="list.delivery_address.state" placeholder="Enter your state here">
+        <input type="text" ng-model="list.delivery_address.zip_code" placeholder="Enter your zip code here">
+      </div>
+
+      <div ng-show="isDefaultAdd" style="margin-top:5px">
+        <div>  Street: {{ street }}</div>
+        <div>  city: {{ city }}</div>
+        <div>  State: {{ state }}</div>
+        <div>  Zip Code: {{ zip }}</div>
+      </div>
+    </div>
+  <!-- Add item here -->
+  <div><h3>Items</h3></div>
 
       <form name="addItemForm">
         <input type="text" ng-model="item.item_name" placeholder="Item Name">

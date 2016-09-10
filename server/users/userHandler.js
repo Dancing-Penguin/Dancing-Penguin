@@ -32,7 +32,8 @@ module.exports = {
               res.json({
                 token: token, //session token will be set on client side
                 // userid also returned.  This should be assigned to a cookie also so that it is available for future server requests and db queries.
-                userid: user['_id']
+                userid: user['_id'],
+                address: user['address']
                 // anything else to send back on success?
               });
             }
