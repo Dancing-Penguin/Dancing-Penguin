@@ -8,10 +8,6 @@ angular.module("crowdcart.lists", ["angularMoment"])
   $scope.list.delivery_address = {};
   $scope.list.items = [];
 
-  // date
-  $scope.timeUntil = function (time) {
-    return new Date(time) - new Date()
-  }
 
   // store userid into local storage (same level as auth token)
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
@@ -23,7 +19,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
   var initialize = function () {
     // console.log('userId: ',$scope.userid)
     // console.log($rootScope)
-    console.log('user', $scope.city)
+    // console.log('user', $scope.city)
 
     // is routePararms exists it means directed here via URL
     if ($routeParams.listid) {
@@ -78,13 +74,20 @@ angular.module("crowdcart.lists", ["angularMoment"])
     }
     Lists.newList($scope.list)
       .then(function () {
-        console.log('rediction');
+        // console.log('rediction');
         $location.path('/alllist.html');
       })
       .catch(function (error) {
         console.log(error);
       });
   };
+
+  $scope.deleteList = function(listid, idx) {
+    Lists.deleteList(listid)
+      .then(function () {
+        $scope.data.lists.splice(idx, 1)
+      })
+  }
 
 
   //Add a job, update the deliverer id to user's id

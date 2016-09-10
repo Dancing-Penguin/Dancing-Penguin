@@ -100,12 +100,18 @@ angular.module("crowdcart.services",[])
 
   // posting a new lists
   var newList = function (list) {
-    console.log('creating a new list')
     return $http({
       method: "POST",
       url: "/api/lists",
       data: list
     });
+  }
+
+  var deleteList = function (listid) {
+    return $http({
+      method: "DELETE",
+      url: "/api/lists/" + listid
+    })
   }
 
   // added because server route looks to handle, not sure if we will need it
@@ -127,15 +133,6 @@ angular.module("crowdcart.services",[])
     })
   }
 
-  // maybe mvp
-  var deleteList = function (list) {
-    return $http({
-      method: "DELETE",
-      url: "/api/lists",
-      data: list /*id*/
-    })
-  }
-
   return {
     getLists: getLists,
     getAllList: getAllList,
@@ -143,7 +140,8 @@ angular.module("crowdcart.services",[])
     newList: newList,
     updateStatus: updateStatus,
     newList: newList,
-    updateList: updateList
+    updateList: updateList,
+    deleteList: deleteList
   }
 
 })

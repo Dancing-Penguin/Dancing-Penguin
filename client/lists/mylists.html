@@ -8,14 +8,16 @@
           <th>List Name</th>
           <th>Location</th>
           <th>Due</th>
+          <th></th>
           <th>Status</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="list" ng-repeat="list in data.lists | filter:search" ng-click="displayDetail(this.list._id)">
-          <td>{{ list.name }}</td>
-          <td>{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</td>
-          <td><span am-time-ago="list.due_at"></span></td>
+        <tr class="list" ng-repeat="list in data.lists | filter:search">
+          <td ng-click="displayDetail(this.list._id)">{{ list.name }}</td>
+          <td ng-click="displayDetail(this.list._id)">{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</td>
+          <td ng-click="displayDetail(this.list._id)"><span am-time-ago="list.due_at"></span></td>
+          <td><a ng-click="deleteList(this.list._id, $index)" class="btn btn-primary btn-sm active">Delete List</a></td>
           <td ng-if="!list.deliverer_id">Open</td>
           <td ng-if="!!list.deliverer_id">In Work!</td>
         </tr>
