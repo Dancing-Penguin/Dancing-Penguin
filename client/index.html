@@ -24,6 +24,33 @@
       </div>
     </div>
 
+  <div class="jumbotron" ng-if="!hasSession">
+  <h1 class="display-3">CrowdCart</h1>
+  <p class="lead">Grocery List? Chuck it the crowd. Crowdsourcing at its finest.</p>
+  <hr class="m-y-2">
+  <p class="lead">
+    <div class="delivery-address">
+    <uib-accordion>
+      <div uib-accordion-group class="panel-default" is-open="status.open">
+        <uib-accordion-heading>
+          <a class="btn btn-primary btn-sm" href="#" role="button">Learn more</a>
+          <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+        </uib-accordion-heading>
+          <div>
+            <p>Tired of doing the groceries? Share your grocery list with our community called "The Crowd".</p>
+            <p>Want to earn some extra cash? Join the crowd and take up any grocery list as a job you can fulfill.</p>
+            <hr />
+            <p>CrowdCart was founded in late 2016 by a group of HackReactor Alumni:</p>
+            <p>Henry Yang, Daniel Chang, Kyle Van Vleck and Ali Bhatti.</p>
+          </div>
+      </div>
+    </uib-accordion>
+  </div>
+  </p>
+</div>
+
+<!-- Carousel -->
+
 <!--           this can prob be handled with ng-view -->
 
 
@@ -32,7 +59,7 @@
 
 <!--     load ui bootstraop below agular lib to prevent errors -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.3/ui-bootstrap-tpls.min.js"></script>
-    
+
     <!-- load momentJS (required for angular-moment) -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 
