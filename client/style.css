@@ -1,3 +1,15 @@
+html {
+  background-image: url(crowdcartbgi.jpg);
+}
+
+
+body {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 1%;
+  /*background-color: white;*/
+}
+
 .items, .delivery-address {
   padding: 3px;
 }
